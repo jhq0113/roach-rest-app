@@ -1,0 +1,35 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jiang Haiqiang
+ * Date: 2020/7/23
+ * Time: 3:02 PM
+ */
+namespace rest\modules\v1\controllers;
+
+use roach\rest\Controller;
+
+/**
+ * Class IndexController
+ * @package www\modules\v1\controllers
+ * @datetime 2020/7/23 3:02 PM
+ * @author roach
+ * @email jhq0113@163.com
+ */
+class IndexController extends Controller
+{
+    /**
+     * @return array
+     * @datetime 2020/7/23 5:19 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public function indexAction()
+    {
+        return [
+            'code' => 200,
+            'msg'  => 'Hello World',
+            'data' => (object)[]
+        ];
+    }
+}

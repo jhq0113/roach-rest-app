@@ -1,0 +1,45 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jiang Haiqiang
+ * Date: 2020/7/23
+ * Time: 4:00 PM
+ */
+namespace console\controllers;
+
+use roach\rest\base\IController;
+
+/**
+ * Class IndexController
+ * @package console\controllers\IndexController
+ * @datetime 2020/7/23 4:01 PM
+ * @author roach
+ * @email jhq0113@163.com
+ */
+class IndexController extends IController
+{
+    /**
+     * @return bool
+     * @datetime 2020/7/23 4:30 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public function before()
+    {
+        return true;
+    }
+
+    public function indexAction()
+    {
+        return [
+            'mId'      => $this->moduleId,
+            'id'       => $this->id,
+            'actionId' => $this->actionId,
+        ];
+    }
+
+    public function after($result)
+    {
+        exit(json_encode($result).PHP_EOL);
+    }
+}
