@@ -8,6 +8,7 @@
 namespace common;
 
 use roach\extensions\ECli;
+use roach\extensions\EEnvir;
 use roach\extensions\EHtml;
 use roach\extensions\EString;
 use roach\extensions\IExtension;
@@ -117,6 +118,11 @@ HTML;
             'line'  => $exception->getLine(),
             'trace' => $trace
         ]);
+
+        if(EEnvir::product()) {
+            Response::response(Response::HTTP_INTERNAL_SERVER_ERROR, '服务器错误，请稍后重试');
+            return;
+        }
 
         Response::response(Response::HTTP_INTERNAL_SERVER_ERROR, $html);
     }
