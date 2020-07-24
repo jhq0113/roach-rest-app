@@ -16,12 +16,7 @@ return [
         //通用异常处理
         'errorHandler' => [
             'class' => 'roach\exceptions\ErrorHandler',
-            'handler' => function($e) {
-                /**
-                 * @var Throwable $e
-                 */
-                //exit($e->getMessage());
-            },
+            'handler' => 'common\ErrorHandler::handler',
             'calls' => [
                 'run'
             ]
