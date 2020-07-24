@@ -44,4 +44,9 @@ class IndexController extends Controller
             'data' => (object)[]
         ];
     }
+
+    public function after($result)
+    {
+        exit(json_encode($result, JSON_UNESCAPED_UNICODE));
+    }
 }
