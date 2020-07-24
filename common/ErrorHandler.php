@@ -107,8 +107,7 @@ HTML;
         $trace = '';
         $traceList = $exception->getTrace();
         foreach ($traceList as $item) {
-            var_dump($item);
-            $trace .= '<p>'.EHtml::encode($item).'</p>';
+            $trace .= "<p>{$item['file']}({$item['line']}) {$item['class']}::{$item['function']}</p>";
         }
 
         $html = EString::interpolate(static::_getTemplate(), [
