@@ -19,6 +19,18 @@ use roach\rest\Controller;
 class IndexController extends Controller
 {
     /**
+     * @var array
+     * @datetime 2020/7/24 9:18 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public $actionMethodMap = [
+        'index' => [
+            'GET'
+        ]
+    ];
+
+    /**
      * @return array
      * @datetime 2020/7/23 5:19 PM
      * @author roach
