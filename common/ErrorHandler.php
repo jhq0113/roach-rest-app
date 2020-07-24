@@ -107,6 +107,7 @@ HTML;
         $trace = '';
         $traceList = $exception->getTrace();
         foreach ($traceList as $item) {
+            var_dump($item);
             $trace .= '<p>'.EHtml::encode($item).'</p>';
         }
 
