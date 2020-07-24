@@ -47,7 +47,7 @@ class ErrorHandler extends IExtension
         <h2 style="color: red;">{msg}</h2>
     </div>
     <div>
-        <p>{trace}</p>
+        {trace}
     </div>
 </div>
 </body>
@@ -103,12 +103,19 @@ HTML;
          */
         $msg  = EHtml::encode($exception->getMessage());
         $file = EHtml::encode($exception->getFile());
+
+        $trace = '';
+        $traceList = $exception->getTrace();
+        foreach ($traceList as $item) {
+            $trace .= '<p>'.EHtml::encode($item).'</p>';
+        }
+
         $html = EString::interpolate(static::_getTemplate(), [
             'title' => $msg,
             'msg'   => $msg,
             'file'  => $file,
             'line'  => $exception->getLine(),
-            'trace' => $exception->getTraceAsString()
+            'trace' => $trace
         ]);
 
         Response::response(Response::HTTP_INTERNAL_SERVER_ERROR, $html);
