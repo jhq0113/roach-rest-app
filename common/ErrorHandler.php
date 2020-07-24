@@ -41,10 +41,10 @@ class ErrorHandler extends IExtension
 <h1 style="text-align: center; color:#006400;">roach-rest</h1>
 <div style="text-align: center;margin: 0 0;">
     <div>
-        <h3>文件：{file} {line}行</h3>
+        <h2 style="color: red;">{msg}</h2>
     </div>
     <div>
-        <h2 style="color: red;">{msg}</h2>
+        <h3>{file}({line})</h3>
     </div>
     <div>
         {trace}
@@ -107,7 +107,7 @@ HTML;
         $trace = '';
         $traceList = $exception->getTrace();
         foreach ($traceList as $item) {
-            $trace .= "<p>{$item['file']}({$item['line']}) {$item['class']}::{$item['function']}</p>";
+            $trace .= "<h4>{$item['file']}({$item['line']}) {$item['class']}::{$item['function']}</h4>";
         }
 
         $html = EString::interpolate(static::_getTemplate(), [
