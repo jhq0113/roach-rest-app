@@ -27,6 +27,9 @@ class IndexController extends Controller
     public $actionMethodMap = [
         'index' => [
             'GET'
+        ],
+        'add' => [
+            'POST'
         ]
     ];
 
@@ -40,8 +43,15 @@ class IndexController extends Controller
     {
         return [
             'code' => 200,
-            'msg'  => 'Hello World',
+            'msg'  => $this->id,
             'data' => (object)[]
+        ];
+    }
+
+    public function addAction()
+    {
+        return [
+            'id' => $this->actionId
         ];
     }
 
