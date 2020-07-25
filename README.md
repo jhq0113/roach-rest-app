@@ -96,3 +96,100 @@ Content-Type: application/json
 DELETE http://roach.360tryst.com/v1/product/delete?id=2
 ```
 
+## 4.添加模块
+
+> 添加自定义模块分为以下几步
+
+* a.在`modules`目录添加模块目录，如:`v2`
+* b.在`v2`目录中添加类文件`Module.php`，内容如下
+
+```php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jiang Haiqiang
+ * Date: 2020/7/25
+ * Time: 7:06 PM
+ */
+namespace rest\modules\v2;
+
+/**
+ * Class Module
+ * @package rest\modules\v2
+ * @datetime 2020/7/25 7:07 PM
+ * @author roach
+ * @email jhq0113@163.com
+ */
+class Module extends \rest\base\Module
+{
+    /**
+     * @var string
+     * @datetime 2020/7/25 7:07 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public $id = 'v2';
+}
+```
+
+* c.在`v2`目录中添加目录`controllers`
+* d.在`controllers`目录添加模块基类`Controller.php`文件，内容如下
+
+```php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jiang Haiqiang
+ * Date: 2020/7/25
+ * Time: 7:00 PM
+ */
+namespace rest\modules\v2\controllers;
+
+/**
+ * Class Controller
+ * @package rest\modules\v2\controllers
+ * @datetime 2020/7/25 7:00 PM
+ * @author roach
+ * @email jhq0113@163.com
+ */
+class Controller extends \rest\base\Controller
+{
+    /**
+     * @var array
+     * @datetime 2020/7/24 9:18 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public $actionMethodMap = [
+        'index'  => [
+            'GET'
+        ],
+        'info'   => [
+            'GET'
+        ],
+        'create' => [
+            'POST'
+        ],
+        'update' => [
+            'PUT'
+        ],
+        'delete' => [
+            'DELETE'
+        ]
+    ];
+}
+```
+
+* e.在`controllers`目录添加业务控制器，如:`ProductController.php`，使之继承刚刚创建的控制器，具体业务代码可以参考示例控制器
+
+## 5.路由
+
+> 项目默认路由规则如下
+
+```text
+/word1                                  word1解析为controller
+/word1/word2                            word1解析为controller，word2解析为action
+/word1/word2/word3                      word1解析为module，word2解析为controller，word3解析为action
+/word1/word2/word3/word4?word5=word6    word1解析为module，word2解析为controller，word3解析为action，word4不会解析，word5为参数key，word6为参数值
+```
+
