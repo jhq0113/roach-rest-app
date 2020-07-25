@@ -7,7 +7,8 @@
  */
 namespace console\controllers;
 
-use roach\rest\base\IController;
+use console\base\Controller;
+use roach\extensions\ECli;
 
 /**
  * Class IndexController
@@ -16,7 +17,7 @@ use roach\rest\base\IController;
  * @author roach
  * @email jhq0113@163.com
  */
-class IndexController extends IController
+class IndexController extends Controller
 {
     /**
      * @return array
@@ -26,10 +27,7 @@ class IndexController extends IController
      */
     public function indexAction()
     {
-        return [
-            'mId'      => $this->moduleId,
-            'id'       => $this->id,
-            'actionId' => $this->actionId,
-        ];
+        $params = ECli::params();
+        ECli::info(json_encode($params, JSON_UNESCAPED_UNICODE));
     }
 }

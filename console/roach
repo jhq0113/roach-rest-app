@@ -10,7 +10,7 @@ use roach\extensions\EEnvir;
 use common\extensions\EArray;
 use common\extensions\Container;
 
-define('APP_PATH', dirname(__DIR__));
+define('APP_PATH', __DIR__);
 require APP_PATH.'/config/bootstrap.php';
 
 //获取配置
