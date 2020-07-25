@@ -184,7 +184,7 @@ class Controller extends \rest\base\Controller
 
 ## 5.路由
 
-> 项目默认路由规则如下
+### 5.1 项目默认路由规则如下
 
 |REQUEST_URI|解析规则|
 |:----------|:------|
@@ -193,4 +193,97 @@ class Controller extends \rest\base\Controller
 |/word1/word2/word3|word1解析为module，word2解析为controller，word3解析为action|
 |/word1/word2/word3/word4?word5=word6|word1解析为module，word2解析为controller，word3解析为action，word4不会解析，word5为参数key，word6为参数值|
 
+### 5.2 自定义路由
 
+> 项目路由类为`roach\rest\Router`，如果系统路由不能满足您的需要，我们可以自己实现一个路由，步骤如下
+
+* a.创建路由类`NewRouter.php`，使之继承`roach\rest\base\IRouter`，并实现相关逻辑
+* b.更改配置
+
+```text
+'app' => [
+        'class'  => 'roach\rest\Application',
+        //应用名称
+        'name'   => 'roach',
+        //路由
+        'router' => [
+            'class' => '\NewRouter',
+        ],
+    ]
+```
+
+## 6.Controller
+
+### 6.1 REQUEST_METHOD控制
+
+> 每个action的`REQUEST_METHOD`的控制是靠`Controller`中`actionMethodMap`属性控制的，如下
+
+```php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jiang Haiqiang
+ * Date: 2020/7/25
+ * Time: 7:00 PM
+ */
+namespace rest\modules\v1\controllers;
+
+/**
+ * Class Controller
+ * @package rest\modules\v1\controllers
+ * @datetime 2020/7/25 7:00 PM
+ * @author roach
+ * @email jhq0113@163.com
+ */
+class Controller extends \rest\base\Controller
+{
+    /**
+     * @var array
+     * @datetime 2020/7/24 9:18 PM
+     * @author roach
+     * @email jhq0113@163.com
+     */
+    public $actionMethodMap = [
+        //indexAction仅支持GET方式
+        'index'  => [  
+            'GET'
+        ],
+        //infoAction支持GET和POST两种方式
+        'info'   => [
+            'GET', 'POST'
+        ],
+        //createAction仅支持POST方式
+        'create' => [
+            'POST'
+        ],
+        //updateAction仅支持PUT方式
+        'update' => [
+            'PUT'
+        ],
+        //deleteAction仅支持DELETE方式
+        'delete' => [
+            'DELETE'
+        ],
+        //...未配置支持所有请求方式
+    ];
+}
+```
+
+### 6.2 控制器生命周期
+
+> 控制器有`before`和`after`两个钩子方法，以下是控制器执行流程
+
+```text
+before方法执行 -> action执行 -> after执行
+```
+
+> 注意：
+
+* a.`before`方法返回`false`时，`action`不会再执行，只有当`before`方法返回`true`时`action`才会执行
+* b.`action`方法执行完毕后的结果会传递给`after`方法，`after`方法可以对`action`执行的数据结果做统一后续处理
+
+## 7.应用生命周期
+
+```text
+module执行before方法 -> controller执行before方法 -> controller执行action -> controller执行after方法 -> module执行after方法
+```
