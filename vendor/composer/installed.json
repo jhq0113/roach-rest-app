@@ -1,0 +1,93 @@
+[
+    {
+        "name": "jhq0113/roach",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jhq0113/roach.git",
+            "reference": "7011b4fea8eb460315e3eb68cbda6af864e4a1f9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jhq0113/roach/zipball/7011b4fea8eb460315e3eb68cbda6af864e4a1f9",
+            "reference": "7011b4fea8eb460315e3eb68cbda6af864e4a1f9",
+            "shasum": ""
+        },
+        "time": "2020-07-24T13:01:17+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "roach\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jiang Haiqiang",
+                "email": "jhq0113@163.com",
+                "homepage": "https://github.com/jhq0113",
+                "role": "Owner"
+            }
+        ],
+        "description": "roach",
+        "homepage": "https://github.com/jhq0113/roach",
+        "keywords": [
+            "php",
+            "roach",
+            "tools"
+        ]
+    },
+    {
+        "name": "jhq0113/roach-rest",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jhq0113/roach-rest.git",
+            "reference": "85858309dfbc32b1aedde88671ac7a0e336f9c13"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jhq0113/roach-rest/zipball/85858309dfbc32b1aedde88671ac7a0e336f9c13",
+            "reference": "85858309dfbc32b1aedde88671ac7a0e336f9c13",
+            "shasum": ""
+        },
+        "require": {
+            "jhq0113/roach": "^1.0"
+        },
+        "time": "2020-07-25T12:07:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "roach\\rest\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jiang Haiqiang",
+                "email": "jhq0113@163.com",
+                "homepage": "https://github.com/jhq0113",
+                "role": "Owner"
+            }
+        ],
+        "description": "roach-rest",
+        "homepage": "https://github.com/jhq0113/roach-rest",
+        "keywords": [
+            "php",
+            "rest",
+            "restful",
+            "roach",
+            "roach-rest"
+        ]
+    }
+]
