@@ -20,6 +20,7 @@ composer create
      - [6.1REQUEST_METHOD控制](#REQUEST_METHOD控制)
      - [6.2控制器生命周期](#控制器生命周期)
 - [7.应用生命周期](#应用生命周期)
+- [8.console应用](#console应用)
 
 <!-- /TOC -->
 
@@ -318,3 +319,23 @@ module执行before方法 -> controller执行before方法 -> controller执行acti
 ```
 
 [回到目录](#目录)
+
+## console应用
+
+> console应用是一个控制台应用，位于`console`目录
+
+> console应用默认不使用模块，也可以参考`rest`应用添加模块应用
+
+> console应用路由规则与`rest`应用路由规则一致
+
+> console应用如果由`cron`定时任务执行，注意标注输出和错误输出异常，默认不进行输出
+
+```bash
+./console/roach controller/action param1 param2 param3
+./console/roach module/controller/action param1 param2 param3
+```
+
+> 可以通过`roach\extensions\ECli::params()`来获取参数
+
+[回到目录](#目录)
+
