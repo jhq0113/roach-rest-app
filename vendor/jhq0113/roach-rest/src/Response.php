@@ -99,11 +99,7 @@ class Response extends IExtension
      */
     public static function response($httpCode, $body = '')
     {
-        if(empty($body)) {
-            http_response_code($httpCode);
-        } else {
-            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? EHtml::encode($_SERVER['SERVER_PROTOCOL']) : 'HTTP/1.1';
-            header($protocol.' '.(string)$httpCode.' '.$body);
-        }
+        http_response_code($httpCode);
+        echo $body;
     }
 }

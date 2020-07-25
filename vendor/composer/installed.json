@@ -44,23 +44,23 @@
     },
     {
         "name": "jhq0113/roach-rest",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/jhq0113/roach-rest.git",
-            "reference": "85858309dfbc32b1aedde88671ac7a0e336f9c13"
+            "reference": "e607fff8c598f022e3ed06abdebcbda2da35ba4f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jhq0113/roach-rest/zipball/85858309dfbc32b1aedde88671ac7a0e336f9c13",
-            "reference": "85858309dfbc32b1aedde88671ac7a0e336f9c13",
+            "url": "https://api.github.com/repos/jhq0113/roach-rest/zipball/e607fff8c598f022e3ed06abdebcbda2da35ba4f",
+            "reference": "e607fff8c598f022e3ed06abdebcbda2da35ba4f",
             "shasum": ""
         },
         "require": {
             "jhq0113/roach": "^1.0"
         },
-        "time": "2020-07-25T12:07:09+00:00",
+        "time": "2020-07-25T12:38:44+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
