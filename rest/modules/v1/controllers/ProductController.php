@@ -44,7 +44,7 @@ class ProductController extends Controller
         }
 
         return [
-            'data' => [
+            'body' => [
                 'page'      => $page,
                 'pageSize'  => $pageSize,
                 'list'      => [
@@ -101,7 +101,7 @@ class ProductController extends Controller
         }
 
         return [
-            'data' => [
+            'body' => [
                 'id'        => $id,
                 'name'      => 'roach',
                 'timestamp' => time()
@@ -146,7 +146,7 @@ class ProductController extends Controller
         }
 
         return [
-            'data' => [
+            'body' => [
                 'id'        => $id,
                 'name'      => $data['name'],
                 'timestamp' => time()
