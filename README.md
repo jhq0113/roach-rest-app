@@ -6,7 +6,24 @@
 composer create 
 ```
 
-## 1.目录结构介绍
+<!-- TOC -->
+# 目录
+
+- [1.目录结构介绍](#目录结构介绍) 
+- [2.部署](#部署)
+- [3.rest接口示例应用](#rest接口示例应用)
+- [4.添加模块](#添加模块)
+- [5.路由](#路由)
+     - [5.1项目默认路由规则如下](#项目默认路由规则如下)
+     - [5.2自定义路由](#自定义路由)
+- [6.Controller](#Controller)
+     - [6.1REQUEST_METHOD控制](#REQUEST_METHOD控制)
+     - [6.2控制器生命周期](#控制器生命周期)
+- [7.应用生命周期](#应用生命周期)
+
+<!-- /TOC -->
+
+## 目录结构介绍
 
 ```text
 - common              项目公用目录
@@ -32,7 +49,9 @@ composer create
 - vendor              项目composer依赖目录
 ```
 
-## 2.部署
+[回到目录](#目录)
+
+## 部署
 
 > `nginx`部署`server`示例
 
@@ -67,7 +86,9 @@ server {
 }
 ```
 
-## 3.`rest`接口示例应用
+[回到目录](#目录)
+
+## rest接口示例应用
 
 > rest接口示例代码文件为`rest/modules/v1/controllers/ProductController.php`
 
@@ -96,7 +117,9 @@ Content-Type: application/json
 DELETE http://roach.360tryst.com/v1/product/delete?id=2
 ```
 
-## 4.添加模块
+[回到目录](#目录)
+
+## 添加模块
 
 > 添加自定义模块分为以下几步
 
@@ -182,9 +205,11 @@ class Controller extends \rest\base\Controller
 
 * e.在`controllers`目录添加业务控制器，如:`ProductController.php`，使之继承刚刚创建的控制器，具体业务代码可以参考示例控制器
 
-## 5.路由
+[回到目录](#目录)
 
-### 5.1 项目默认路由规则如下
+## 路由
+
+### 项目默认路由规则如下
 
 |REQUEST_URI|解析规则|
 |:----------|:------|
@@ -193,7 +218,7 @@ class Controller extends \rest\base\Controller
 |/word1/word2/word3|word1解析为module，word2解析为controller，word3解析为action|
 |/word1/word2/word3/word4?word5=word6|word1解析为module，word2解析为controller，word3解析为action，word4不会解析，word5为参数key，word6为参数值|
 
-### 5.2 自定义路由
+### 自定义路由
 
 > 项目路由类为`roach\rest\Router`，如果系统路由不能满足您的需要，我们可以自己实现一个路由，步骤如下
 
@@ -212,9 +237,11 @@ class Controller extends \rest\base\Controller
     ]
 ```
 
-## 6.Controller
+[回到目录](#目录)
 
-### 6.1 REQUEST_METHOD控制
+## Controller
+
+### REQUEST_METHOD控制
 
 > 每个action的`REQUEST_METHOD`的控制是靠`Controller`中`actionMethodMap`属性控制的，如下
 
@@ -269,7 +296,7 @@ class Controller extends \rest\base\Controller
 }
 ```
 
-### 6.2 控制器生命周期
+### 控制器生命周期
 
 > 控制器有`before`和`after`两个钩子方法，以下是控制器执行流程
 
@@ -282,8 +309,12 @@ before方法执行 -> action执行 -> after执行
 * a.`before`方法返回`false`时，`action`不会再执行，只有当`before`方法返回`true`时`action`才会执行
 * b.`action`方法执行完毕后的结果会传递给`after`方法，`after`方法可以对`action`执行的数据结果做统一后续处理
 
-## 7.应用生命周期
+[回到目录](#目录)
+
+## 应用生命周期
 
 ```text
 module执行before方法 -> controller执行before方法 -> controller执行action -> controller执行after方法 -> module执行after方法
 ```
+
+[回到目录](#目录)
