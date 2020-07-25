@@ -40,7 +40,7 @@ class ProductController extends Controller
         //仅为了测试使用
         $empty = (time()%2 === 0);
         if($empty) {
-            return $this->response(Response::HTTP_EMPTY, '产品列表为空');
+            return $this->response(Response::HTTP_NOT_FOUND, '产品列表为空');
         }
 
         return [
@@ -169,7 +169,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return $this->response(Response::HTTP_EMPTY, 'id:{id}的商品已删除', [
+        return $this->response(Response::HTTP_ACCEPTED, 'id:{id}的商品已删除', [
            'id' => $id
         ]);
     }
