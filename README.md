@@ -3,7 +3,7 @@
 ## 使用方式
 
 ```bash
-composer create 
+composer create-project jhq0113/roach-rest-app yourpath ^1.0
 ```
 
 <!-- TOC -->
