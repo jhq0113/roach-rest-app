@@ -38,7 +38,7 @@ class ProductController extends Controller
         $pageSize = $pageSize > 1000 ? 1000 : $pageSize;
 
         //仅为了测试使用
-        $empty = (time()/2 === 0);
+        $empty = (time()%2 === 0);
         if($empty) {
             return $this->response(Response::HTTP_EMPTY, '产品列表为空');
         }
@@ -93,7 +93,7 @@ class ProductController extends Controller
         }
 
         //仅为了测试使用
-        $empty = (time()/2 === 0);
+        $empty = (time()%2 === 0);
         if($empty) {
             return $this->response(Response::HTTP_NOT_FOUND, '不存在id:{id}的商品', [
                 'id' => $id
