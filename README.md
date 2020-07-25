@@ -186,10 +186,11 @@ class Controller extends \rest\base\Controller
 
 > 项目默认路由规则如下
 
-```text
-/word1                                  word1解析为controller
-/word1/word2                            word1解析为controller，word2解析为action
-/word1/word2/word3                      word1解析为module，word2解析为controller，word3解析为action
-/word1/word2/word3/word4?word5=word6    word1解析为module，word2解析为controller，word3解析为action，word4不会解析，word5为参数key，word6为参数值
-```
+|REQUEST_URI|解析规则|
+|:----------|:------|
+|/word1|word1解析为controller|
+|/word1/word2|word1解析为controller，word2解析为action|
+|/word1/word2/word3|word1解析为module，word2解析为controller，word3解析为action|
+|/word1/word2/word3/word4?word5=word6|word1解析为module，word2解析为controller，word3解析为action，word4不会解析，word5为参数key，word6为参数值|
+
 
