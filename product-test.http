@@ -18,5 +18,3 @@ Content-Type: application/json
 
 ### 删除商品
 DELETE http://roach.360tryst.com/v1/product/delete?id=2
-
-###
