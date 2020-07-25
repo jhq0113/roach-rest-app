@@ -19,16 +19,11 @@ use roach\rest\base\IController;
 class IndexController extends IController
 {
     /**
-     * @return bool
-     * @datetime 2020/7/23 4:30 PM
+     * @return array
+     * @datetime 2020/7/25 8:44 PM
      * @author roach
      * @email jhq0113@163.com
      */
-    public function before()
-    {
-        return true;
-    }
-
     public function indexAction()
     {
         return [
@@ -36,10 +31,5 @@ class IndexController extends IController
             'id'       => $this->id,
             'actionId' => $this->actionId,
         ];
-    }
-
-    public function after($result)
-    {
-        exit(json_encode($result).PHP_EOL);
     }
 }
