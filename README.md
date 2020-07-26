@@ -320,6 +320,13 @@ before方法执行 -> action执行 -> after执行
 
 ![image](https://github.com/jhq0113/roach-rest-app/raw/master/roach-rest.png)
 
+> 注意
+
+* a.`Module`的`before`方法会返回一个bool值，当返回false时，`Controller`的`before`方法以及后续流程不会再执行
+* b.`Controller`的`before`方法会返回一个bool值，当返回false时，`Controller`的action以及后续流程不会再执行
+* c.`Controller`的`after`方法将`action`方法返回值作为第一个参数，可以对`action`的数据结果做`Controller`级别统一处理
+* d.`Module`的`after`方法将`Controller`的`after`方法的返回值作为第一个参数，可以对`action`的数据结果做`Module`级别统一处理
+
 [回到目录](#目录)
 
 ## console应用
