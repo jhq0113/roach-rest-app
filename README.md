@@ -318,7 +318,7 @@ before方法执行 -> action执行 -> after执行
 
 ## 应用生命周期
 
-![image](https://github.com/jhq0113/roach-rest-app/raw/master/roach-lifecycle.png)
+![image](https://github.com/jhq0113/roach-rest-app/raw/master/roach-rest.png)
 
 [回到目录](#目录)
 
