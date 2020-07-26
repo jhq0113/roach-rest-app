@@ -14,13 +14,16 @@ composer create-project jhq0113/roach-rest-app yourpath ^1.0
 - [3.rest接口示例应用](#rest接口示例应用)
 - [4.添加模块](#添加模块)
 - [5.路由](#路由)
-     - [5.1项目默认路由规则如下](#项目默认路由规则如下)
-     - [5.2自定义路由](#自定义路由)
+     - [5.1 项目默认路由规则如下](#项目默认路由规则如下)
+     - [5.2 自定义路由](#自定义路由)
 - [6.Controller](#Controller)
-     - [6.1REQUEST_METHOD控制](#REQUEST_METHOD控制)
-     - [6.2控制器生命周期](#控制器生命周期)
+     - [6.1 REQUEST_METHOD控制](#REQUEST_METHOD控制)
+     - [6.2 控制器生命周期](#控制器生命周期)
 - [7.应用生命周期](#应用生命周期)
 - [8.console应用](#console应用)
+- [9.多环境管理](#多环境管理)
+     - [9.1 环境选择](#环境选择)
+     - [9.2 配置选择](#配置选择)
 
 <!-- /TOC -->
 
@@ -336,6 +339,30 @@ module执行before方法 -> controller执行before方法 -> controller执行acti
 ```
 
 > 可以通过`roach\extensions\ECli::params()`来获取参数
+
+[回到目录](#目录)
+
+## 多环境管理
+
+### 环境选择
+> `roach-rest`的环境选择配置在`php.ini`中，如下
+
+```ini
+[config]
+;默认有三个可选值develop、test、product，未配置默认为develop
+;develop  开发环境
+;test     测试环境
+;product  生产环境
+envir=product
+```
+
+> 代码中我们可以通过调用`roach\extensions\EEnvir::envir`方法获取环境配置值
+
+### 配置选择
+
+* a. 项目有公用配置，配置文件为`common/config/config.php`，为多个应用共享配置
+* b. 项目各个应用有应用配置，应用配置是根据环境选择的，如`rest/config/develop.php`是应用开发环境的配置
+* c. 应用配置文件会覆盖公用配置
 
 [回到目录](#目录)
 
