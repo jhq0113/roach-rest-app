@@ -317,9 +317,7 @@ before方法执行 -> action执行 -> after执行
 
 ## 应用生命周期
 
-```text
-module执行before方法 -> controller执行before方法 -> controller执行action -> controller执行after方法 -> module执行after方法
-```
+![image](/roach-lifecycle.png)
 
 [回到目录](#目录)
 
