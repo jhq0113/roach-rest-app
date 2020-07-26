@@ -25,6 +25,7 @@ composer create-project jhq0113/roach-rest-app yourpath ^1.0
      - [9.1 环境选择](#环境选择)
      - [9.2 配置选择](#配置选择)
 - [10. 使用orm](#使用orm)
+- [11. 异常错误处理](#异常错误处理)
 
 <!-- /TOC -->
 
@@ -394,6 +395,30 @@ envir=product
 * c.在`common`目录中增加`models`目录用于存放`Model`类，具体使用方式可以参考`roach-orm`使用方式
 
 ### [https://github.com/jhq0113/roach-orm](https://github.com/jhq0113/roach-orm)
+
+[回到目录](#目录)
+
+## 异常错误处理
+
+> roach-rest对异常和错误做了统一处理，当项目运行时触发了未被`try...catch`捕捉的异常时，会统一交由`errorHandler`组件处理，配置如下
+
+```php
+<?php
+return [
+    'components' => [
+        //通用异常处理
+        'errorHandler' => [
+            'class' => 'roach\exceptions\ErrorHandler',
+            'handler' => 'common\ErrorHandler::handler',
+            'calls' => [
+                'run'
+            ]
+        ]
+    ]
+];
+```
+
+> `roach-rest`提供了一个`handler`，封装在`common\ErrorHandler::handler`，开发者可以根据自己需要进行扩展
 
 [回到目录](#目录)
 
