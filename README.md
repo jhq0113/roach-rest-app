@@ -24,6 +24,7 @@ composer create-project jhq0113/roach-rest-app yourpath ^1.0
 - [9. 多环境管理](#多环境管理)
      - [9.1 环境选择](#环境选择)
      - [9.2 配置选择](#配置选择)
+- [10. 使用orm](#使用orm)
 
 <!-- /TOC -->
 
@@ -361,6 +362,31 @@ envir=product
 * a. 项目有公用配置，配置文件为`common/config/config.php`，为多个应用共享配置
 * b. 项目各个应用有应用配置，应用配置是根据环境选择的，如`rest/config/develop.php`是应用开发环境的配置
 * c. 应用配置文件会覆盖公用配置
+
+[回到目录](#目录)
+
+## 使用orm
+
+> roach-rest并未提供`orm`支持，开发者可以自行选择基于`composer`的`orm`组件，例如`roach-orm`
+
+* a.编辑`composer.json`文件，添加`roach-orm`组件
+
+```json
+{
+  ...,
+  "require": {
+    "jhq0113/roach-rest": "^1.0",
+    "jhq0113/roach-orm": "^1.0"
+  },
+  ...
+}
+```
+
+* b.执行`composer update`，待安装完毕可以
+
+* c.在`common`目录中增加`models`目录用于存放`Model`类，具体使用方式可以参考`roach-orm`使用方式
+
+### [https://github.com/jhq0113/roach-orm](https://github.com/jhq0113/roach-orm)
 
 [回到目录](#目录)
 
